@@ -7,20 +7,20 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2>Message list</h2>
+        <h2>Task list</h2>
         <ul>
-            <c:forEach var="message" items="${messages}">
+            <c:forEach var="task" items="${tasks}">
                 <li>
-                    <a href="${pageContext.request.contextPath}/show?id=${message.id}">
-                        <c:out value="${message.id}"/>
+                    <a href="${pageContext.request.contextPath}/show?id=${task.id}">
+                        <c:out value="${task.id}"/>
                     </a>
-                    : <c:out value="${message.title}"></c:out> &gt; <c:out value="${message.content}" />
+                    : <c:out value="${task.content}" />
                 </li>
             </c:forEach>
         </ul>
         <div id="pagination">
-            (all ${messages_count} message)<br>
-            <c:forEach var="i" begin="1" end="${((messages_count - 1) / 15) + 1}" step="1">
+            (all ${tasks_count} tasks)<br>
+            <c:forEach var="i" begin="1" end="${((tasks_count - 1) / 15) + 1}" step="1">
                 <c:choose>
                     <c:when test="${i == page}">
                         <c:out value="${i}" />&nbsp;
@@ -31,6 +31,6 @@
                 </c:choose>
             </c:forEach>
         </div>
-        <p><a href="${pageContext.request.contextPath}/new">Post new message</a></p>
+        <p><a href="${pageContext.request.contextPath}/new">Post new task</a></p>
     </c:param>
 </c:import>

@@ -8,12 +8,8 @@
         </c:forEach>
     </div>
 </c:if>
-<label for="title">Title</label><br>
-<input type="text" name="title" id="title" value="${message.title}" />
-<br><br>
-
-<label for="context_msg">Message</label><br>
-<input type="text" name="content" id="content_msg" value="${message.content}"/>
+<label for="context_msg">Task</label><br>
+<input type="text" name="content" id="content_msg" value="${task.content}"/>
 <br><br>
 
 <input type="hidden" name="_token" value="${_token}" />
