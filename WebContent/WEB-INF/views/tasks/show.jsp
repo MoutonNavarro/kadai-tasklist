@@ -9,7 +9,7 @@
                 <table>
                     <tr>
                         <th>Content</th>
-                        <td><c:out value="${content.content}" /></td>
+                        <td><c:out value="${task.content}" /></td>
                     </tr>
                     <tr>
                         <th>Date created</th>

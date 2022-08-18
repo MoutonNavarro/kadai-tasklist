@@ -3,7 +3,7 @@
 <c:import url="../layout/app.jsp">
     <c:param name="content">
         <c:choose>
-            <c:when test="${message != null}">
+            <c:when test="${task != null}">
 
                 <h2>Edit page that task; id : ${task.id} </h2>
 
