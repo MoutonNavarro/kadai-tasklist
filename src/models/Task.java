@@ -24,7 +24,7 @@ import javax.persistence.Table;
         )
 })
 @Table(name="tasks")
-public class Tasks {
+public class Task {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
