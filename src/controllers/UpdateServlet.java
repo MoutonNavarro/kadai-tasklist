@@ -39,7 +39,7 @@ public class UpdateServlet extends HttpServlet {
             EntityManager em = DBUtil.createEntityManager();
 
             //Get task ID from the session scope then get only pointed one from the database
-            Task t = em.find(Task.class, (Integer)(request.getSession().getAttribute("message_id")));
+            Task t = em.find(Task.class, (Integer)(request.getSession().getAttribute("task_id")));
 
             //Overwrite each field by content of the form.
 
