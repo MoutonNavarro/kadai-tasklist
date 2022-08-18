@@ -37,16 +37,16 @@ public class EditServlet extends HttpServlet {
         Task t = em.find(Task.class, Integer.parseInt(request.getParameter("id")));
         em.close();
 
-        //Register session ID and message info at the request scope
-        request.setAttribute("message", t);
+        //Register session ID and task info at the request scope
+        request.setAttribute("task", t);
         request.setAttribute("_token", request.getSession().getId());
 
-        //Register message ID at the the session scope when only message data existed
+        //Register task ID at the the session scope when only message data existed
         if (t != null) {
-            request.getSession().setAttribute("message_id", t.getId());
+            request.getSession().setAttribute("task_id", t.getId());
         }
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/edit.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/edit.jsp");
         rd.forward(request, response);
     }
 

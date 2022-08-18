@@ -38,7 +38,7 @@ public class UpdateServlet extends HttpServlet {
         if (_token != null || _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
 
-            //Get message ID from the session scope then get only pointed one from the database
+            //Get task ID from the session scope then get only pointed one from the database
             Task t = em.find(Task.class, (Integer)(request.getSession().getAttribute("message_id")));
 
             //Overwrite each field by content of the form.
@@ -56,10 +56,10 @@ public class UpdateServlet extends HttpServlet {
 
                 //Set default value at the form, and send error message
                 request.setAttribute("_token", request.getSession().getId());
-                request.setAttribute("message", t);
+                request.setAttribute("task", t);
                 request.setAttribute("errors", errors);
 
-                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/edit.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/edit.jsp");
                 rd.forward(request, response);
             }else {
                 // Update database
@@ -69,7 +69,7 @@ public class UpdateServlet extends HttpServlet {
                 em.close();
 
                 // Delete data that no longer needed on the session scope
-                request.getSession().removeAttribute("message_id");
+                request.getSession().removeAttribute("task_id");
 
                 //Redirect to index page
                 response.sendRedirect(request.getContextPath() + "/index");

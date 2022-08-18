@@ -34,13 +34,13 @@ public class ShowServlet extends HttpServlet {
         EntityManager em = DBUtil.createEntityManager();
 
         // Get only one that pointed Id from the database
-        Task m = em.find(Task.class, Integer.parseInt(request.getParameter("id")));
+        Task t = em.find(Task.class, Integer.parseInt(request.getParameter("id")));
         em.close();
 
         //Call show.jsp after set the request data to the request scope
-        request.setAttribute("message", m);
+        request.setAttribute("task", t);
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/show.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/show.jsp");
         rd.forward(request, response);
     }
 

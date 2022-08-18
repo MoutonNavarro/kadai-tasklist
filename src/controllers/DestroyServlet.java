@@ -34,8 +34,8 @@ public class DestroyServlet extends HttpServlet {
         if (_token != null || _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
 
-            //Get message ID from the session scope then get only pointed one from the database
-            Task t = em.find(Task.class, (Integer)(request.getSession().getAttribute("message_id")));
+            //Get task ID from the session scope then get only pointed one from the database
+            Task t = em.find(Task.class, (Integer)(request.getSession().getAttribute("task_id")));
 
 
             em.getTransaction().begin();
@@ -45,7 +45,7 @@ public class DestroyServlet extends HttpServlet {
             em.close();
 
             // Delete data that no longer needed on the session scope
-            request.getSession().removeAttribute("message_id");
+            request.getSession().removeAttribute("task_id");
 
             //Redirect to index page
             response.sendRedirect(request.getContextPath() + "/index");

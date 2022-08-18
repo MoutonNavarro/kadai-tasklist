@@ -53,10 +53,10 @@ public class CreateServlet extends HttpServlet {
 
                 //Set default value at the form, and send error message
                 request.setAttribute("_token", request.getSession().getId());
-                request.setAttribute("message", t);
+                request.setAttribute("task", t);
                 request.setAttribute("errors", errors);
 
-                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/new.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/new.jsp");
                 rd.forward(request, response);
             }else {
                 //Save database
