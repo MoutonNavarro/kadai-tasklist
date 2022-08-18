@@ -8,16 +8,23 @@
             </div>
         </c:if>
         <h2>Task list</h2>
-        <ul>
+        <table id="indexTable">
+            <tr>
+                <th>Task ID</th>
+                <td>Task content</td>
+            </tr>
             <c:forEach var="task" items="${tasks}">
-                <li>
-                    <a href="${pageContext.request.contextPath}/show?id=${task.id}">
-                        <c:out value="${task.id}"/>
-                    </a>
-                    : <c:out value="${task.content}" />
-                </li>
+                <tr>
+                   <th>
+                     <a href="${pageContext.request.contextPath}/show?id=${task.id}">
+                         <c:out value="${task.id}"/>
+                     </a>
+                   </th>
+                   <td><c:out value="${task.content}" />
+                   </td>
+                </tr>
             </c:forEach>
-        </ul>
+        </table>
         <div id="pagination">
             (all ${tasks_count} tasks)<br>
             <c:forEach var="i" begin="1" end="${((tasks_count - 1) / 15) + 1}" step="1">

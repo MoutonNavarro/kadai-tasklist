@@ -65,6 +65,16 @@ td {
     padding: 10px 2%;
 }
 
+table#indexTable tr th{
+    width: 100px;
+    padding: 10px 2%;
+}
+
+table#indexTable tr td{
+    width: 90%;
+    padding: 10px 2%;
+}
+
 button {
     font-size: 14px;
     padding: 5px 10px;
@@ -91,4 +101,8 @@ button {
     margin-bottom: 15px;
     color: #721c24;
     background-color: #f8d7da;
+}
+
+div #pagination{
+    text-align: center;
 }

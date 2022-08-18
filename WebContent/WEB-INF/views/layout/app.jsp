@@ -4,13 +4,13 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>Message board</title>
+        <title>Task manager</title>
         <link rel="stylesheet" href="<c:url value='/css/style.css' />">
     </head>
     <body>
         <div id="wrapper">
             <div id="header">
-                <h1>Message board application</h1>
+                <h1>Task Management application</h1>
             </div>
             <div id="content">
                 ${param.content}
